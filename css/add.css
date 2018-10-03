@@ -1,0 +1,160 @@
+.field {
+    width: 80%;
+    margin: 5px;
+}
+
+
+.field input,
+.field select {
+    background-color: rgb(231, 240, 104);
+    width: 40%;
+    margin: 0;
+    padding: 3px;
+    height: 30px;
+    border: 1px solid black;
+}
+
+.field label {
+    width: 30%;
+    display: inline-block;
+}
+
+#EventTime {
+    width: 200px;
+    height: 30px;
+}
+
+header {
+    width: 100vw;
+    min-width: 513px;
+    display: flex;
+    flex-direction: column;
+    background-color: #232227;
+}
+
+.top {
+    min-width: 513px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+    /* justify-content: flex-end; */
+    /* float: both; */
+}
+
+.log {
+    float: right;
+    cursor: pointer;
+    background: #E76642;
+    width: 75px;
+    height: 24px;
+    border: 0;
+    /* padding: 10px 15px; */
+    color: #ffffff;
+    /* transition: 0.3s ease; */
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.login {
+    float: right;
+    color: white;
+    /* text-align: right; */
+    justify-content: flex-end;
+    width: 150px;
+    /* float: right; */
+    /* width: 15%; */
+    /* width: 10%; */
+    margin: 10px;
+}
+
+.pass {
+    float: right;
+    width: 180px;
+    color: white;
+    /* text-align: right; */
+    justify-content: flex-end;
+    /* float: right; */
+    /* width: 15%; */
+    /* width: 10%; */
+    margin: 10px;
+}
+
+.buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.header,
+.add {
+    float: left;
+    width: 50%;
+}
+
+.header a,
+.add a {
+    border-radius: 5px;
+    background-color: #232227;
+    display: block;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.header a:hover,
+.add a:hover {
+    background-color: rgba(70, 69, 68, 0.938);
+}
+
+footer {
+    background-color: #232227;
+    height: 50px;
+}
+
+body {
+    min-width: 513px;
+    font-family: 'Comfortaa', cursive;
+    height: 800px;
+    margin: 0;
+    background-color: rgb(231, 240, 104);
+    /* display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh; */
+}
+
+.top .pass input,
+.top .login input {
+    width: 100px;
+}
+
+.testForm {
+    height: 800px;
+}
+
+.formClass {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 37vw;
+    background-image: linear-gradient(-90deg, rgb(231, 240, 104), rgb(245, 242, 98));
+    margin-top: 50px;
+    margin-bottom: 50px;
+    z-index: +1;
+    -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37wv;
+}
