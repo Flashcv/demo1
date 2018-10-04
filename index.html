@@ -7,29 +7,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>
         Events
     </title>
 </head>
 <header>
     <div class="top">
-        <input class="log" type="button" value="log in" id="check">
-        <input class="logout" type="button" value="log out" id="logout">
-        <div>
-            <label type="text" name="logged" id="logged">admin</label>
+        <div class="login">
+            <label for="login" id="labellogin">login</label>
+            <input type="text" name="login" id="login" value="admin">
         </div>
         <div class="pass">
             <label for="password" id="labelpassword">password</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="password" id="password" value="admin">
         </div>
-        <div class="login">
-            <label for="login" id="labellogin">login</label>
-            <input type="text" name="login" id="login">
+        <div>
+            <label type="text" name="logged" id="logged">admin</label>
         </div>
+        <input class="log" type="button" value="log in" id="check">
+        <input class="logout" type="button" value="log out" id="logout">
     </div>
     <div class="buttons">
-        <div class="header">
+        <div class="homepage">
             <a href="index.html">Event list</a>
         </div>
         <div class="add">
@@ -41,38 +40,25 @@
 <body>
     <div class="container-1">
         <div class="box-1">
-            <!-- <main id="accordion"> -->
             <ul id="slider">
             </ul>
         </div>
         <div class="box-2">
             <div id="name" class="event"></div>
-
-
         </div>
-
     </div>
-    <!-- </div> -->
-
-
 </body>
-
 <footer>
     <div id="modal">
-        <!-- <div id="ex1" class="modal">
-            <p>Thanks for clicking. That felt good.</p>
-            <a href="#" rel="modal:close">Close</a>
-        </div> -->
-        <!-- <a href="#ex1" rel="modal:open">Open Modal</a> -->
+
     </div>
 </footer>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
-<!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
+<script src="js/firebase-app.js"></script>
+<script src="js/firebase-database.js"></script>
 <script src="node_modules/jquery/dist/jquery.js"></script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
 <script src="node_modules/jquery-modal/jquery.modal.min.js"></script>
 <script src="node_modules/slick-carousel/slick/slick.js"></script>
 <script src="node_modules/lodash/lodash.js"></script>
-<script src="js/script.js" defer></script>
+<script src="js/script.js"></script>
 
 </html>

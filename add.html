@@ -11,81 +11,66 @@
 </head>
 <header>
     <div class="top">
-        <input class="log" type="button" value="log in">
-        <div class="pass">
-            <label for="password">password</label>
-            <input type="password" name="password" id="password">
-        </div>
         <div class="login">
-            <label for="login">login</label>
+            <label for="login" id="labellogin">login</label>
             <input type="text" name="login" id="login">
         </div>
+        <div class="pass">
+            <label for="password" id="labelpassword">password</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div>
+            <label type="text" name="logged" id="logged">admin</label>
+        </div>
+        <input class="log" type="button" value="log in" id="check">
+        <input class="logout" type="button" value="log out" id="logout">
     </div>
     <div class="buttons">
-        <div class="header">
+        <div class="homepage">
             <a href="index.html">Event list</a>
         </div>
         <div class="add">
-            <a href="add.html">Add New Event</a>
+            <a id="mainpage" href="add.html">Add New Event</a>
         </div>
     </div>
 </header>
 
 <body>
-    <form>
+    <form onsubmit="return formSend(this)" name="form">
         <div class="formClass">
-            <div class="field">
-                <label for="EventName">Name of Event</label>
-                <input type="text" name="EventName" id="EventName" value="Presentation">
+            <div class="addFormHead">
+
+                <fieldset>
+                    <label class="eventName">Add event</label>
+                    <div class="field">
+                        <label for="EventName">Name of Event</label>
+                        <input type="text" name="EventName" id="EventName" value="Presentation" maxlength="12">
+                    </div>
+                    <div class="field">
+                        <label for="EventDate">Date of Event</label>
+                        <input type="date" name="EventDate" id="EventDate" value="2019-08-28" min="date">
+                    </div>
+                    <div class="field">
+                        <label for="EventCity">Event place</label>
+                        <input type="text" name="EventCity" id="EventCity" value="Chernivtsi" maxlength="20">
+                    </div>
+                    <div class="field">
+                        <label for="EventAddress">Event address</label>
+                        <input type="text" name="EventAddress" id="EventAddress" value="Holovna 246">
+                    </div>
+                    <div class="addSpeakerBtn">
+                        <input type="button" name="addSpeaker" id="addSpeaker" value="+" class="btnAdd">
+                    </div>
+                </fieldset>
             </div>
-            <div class="field">
-                <label for="EventDate">Date of Event</label>
-                <input type="date" name="EventDate" id="EventDate" value="2011-08-28">
-            </div>
-            <div class="field">
-                <label for="EventCity">Event place</label>
-                <input type="text" name="EventCity" id="EventCity" value="Chernivtsi">
-            </div>
-            <div class="field">
-                <label for="EventAddress">Event address</label>
-                <input type="text" name="EventAddress" id="EventAddress" value="Holovna 246">
-            </div>
-            <div class="field">
-                <label for="EventTime">Event time</label>
-                <select id="EventTime" name="EventTime">
-                <option value="9:30-10:30" selected>9:30-10:30</option>
-                <option value="10:30-11:30">10:30-11:30</option>
-                <option value="11:30-12:30">11:30-12:30</option>
-                <option value="12:30-13:30">12:30-13:30</option>
-            </select>
-            </div>
-            <div class="field">
-                <label for="Topic">Topic</label>
-                <input type="text" id="Topic" name="Topic" value="FIFA 19">
-            </div>
-            <div class="field">
-                <label for="SpeakerName">Speaker First Name</label>
-                <input type="text" id="SpeakerName" name="SpeakerName" value="Andriy">
-            </div>
-            <div class="field">
-                <label for="SpeakerLastname">Speaker Last Name</label>
-                <input type="text" id="SpeakerLastname" name="SpeakerLastname" value="Martynyuk">
-            </div>
-            <div class="field">
-                <label for="SpeakerFromCountry">Speaker From (Country)</label>
-                <input type="text" id="SpeakerFromCountry" name="SpeakerFromCountry" value="Ukraine">
-            </div>
-            <div class="field">
-                <label for="SpeakerFromCity">Speaker From (City)</label>
-                <input type="text" id="SpeakerFromCity" name="SpeakerFromCity" value="Chernivtsi">
-            </div>
-            <div class="field">
-                <label for="SpeakerDescription">Speaker Description</label>
-                <input type="text" id="SpeakerDescription" name="SpeakerDescription" value="templates Maestro">
-            </div>
-            <div class="send">
-                <input type="button" value="Add">
-            </div>
+        </div>
+
+        <div id="oneMore">
+
+        </div>
+
+        <div class="send">
+            <input type="submit" value="Add" class="btn">
         </div>
     </form>
 
@@ -94,11 +79,13 @@
     <div class="foot">
     </div>
 </footer>
+<script src="js/firebase-app.js"></script>
+<script src="js/firebase-database.js"></script>
 <script src="node_modules/jquery/dist/jquery.js"></script>
-<!-- <script src="node_modules/jquery-modal/jquery.modal.min.js"></script>
+<script src="node_modules/jquery-modal/jquery.modal.min.js"></script>
 <script src="node_modules/slick-carousel/slick/slick.js"></script>
-<script src="node_modules/lodash/lodash.js"></script> -->
-<!-- <script src="js/script.js" defer></script> -->
-<script src="js/add.js"></script>
+<script src="node_modules/lodash/lodash.js"></script>
+<script src="js/script.js"></script>
+
 
 </html>
