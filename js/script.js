@@ -27,15 +27,15 @@ const months = [
     'Dec'
 ]
 const days = [
-        'Sunday',
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday'
-    ]
-    //to delete duplicate years
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday'
+]
+//to delete duplicate years
 function unique(arr) {
     var obj = {}
     for (var i = 0; i < arr.length; i++) {
@@ -49,7 +49,7 @@ function renderEvent(eventData) {
     let speakerData = '';
     let modal = '';
 
-    eventData.speaker.forEach(function(speaker, index, data) {
+    eventData.speaker.forEach(function (speaker, index, data) {
         modal += `
         <div id="${speaker.firstName + speaker.lastName}" class="modal">
             <span>Speaker:</span> 
@@ -90,43 +90,43 @@ function renderEvent(eventData) {
     const date = new Date(eventData.date);
     $('#modal').append(modal);
     return `  
-            <div class="container">
-                <div class="card">
-                    <div class="front">
-                        <div class="contentfront">
-                            <div class="month">
-                                <span class="eventName">
-                                    ${eventData.name}
-                                </span>
-                                    <div class="eventPlace">
-                                        ${eventData.address}
-                                    </div>
-                            </div>
-                            <div class="date">
-                                <div class="datecont">
-                                <div id="date">${date.getDate()}</div>
-                                <div id="day">${days[date.getDay()]}</div>
-                                <div id="month">${months[date.getMonth()] + ' / ' + date.getFullYear()}</div>
+        <div class="container">
+            <div class="card">
+                <div class="front">
+                    <div class="contentfront">
+                        <div class="month">
+                            <span class="eventName">
+                                ${eventData.name}
+                            </span>
+                                <div class="eventPlace">
+                                    ${eventData.address}
                                 </div>
+                        </div>
+                        <div class="date">
+                            <div class="datecont">
+                            <div id="date">${date.getDate()}</div>
+                            <div id="day">${days[date.getDay()]}</div>
+                            <div id="month">${months[date.getMonth()] + ' / ' + date.getFullYear()}</div>
                             </div>
                         </div>
                     </div>
-                    <div class="back">
-                        ${speakerData}
-                    </div>
                 </div>
-            </div>`
+                <div class="back">
+                    ${speakerData}
+                </div>
+            </div>
+        </div>`
 }
 //years list
 function renderYears(events) {
     var allYears = [];
-    events.forEach(function(element) {
+    events.forEach(function (element) {
         let date = new Date(element.date)
         allYears.push(date.getFullYear())
         uniqYears = unique(allYears.sort())
     })
     for (var i = 0; i < uniqYears.length; i++) {
-        if (uniqYears[i] == "2018") {
+        if (uniqYears[i] == ActualDate.getFullYear()) {
             out += '<li class="year activeYear">' + uniqYears[i] + '</li>'
         } else {
             out += '<li class="year">' + uniqYears[i] + '</li>'
@@ -140,37 +140,37 @@ function flipCard(e) {
     $(this).toggleClass('flipped');
 }
 //main
-window.onload = (function() {
+window.onload = (function () {
     let database = firebase.database();
-    database.ref().on("value", function(snap) {
+    database.ref().on("value", function (snap) {
         if (snap.exists()) {
             data = snap.val();
-            let outroDefault = '';
             $('#slider').html(renderYears(data));
 
-            let currentYearEvent = data.filter(function(event) {
-                    let date = new Date(event.date);
-                    return date.getFullYear() === ActualDate.getFullYear();
-                })
-                //default page (current year)
-            currentYearEvent.forEach(function(event) {
+            let currentYearEvent = data.filter(function (event) {
+                let date = new Date(event.date);
+                return date.getFullYear() === ActualDate.getFullYear();
+                
+            })
+            //default page (current year)
+            currentYearEvent.forEach(function (event) {
                 $('#name').append(renderEvent(event))
             })
             $('.card').click(flipCard);
 
-            $('.year').click(function() {
+            $('.year').click(function () {
                 $('.year').removeClass('activeYear');
                 $(this).toggleClass('activeYear');
                 document.getElementById('name').innerHTML = ''
                 $('#name').html('');
                 //onclick year
                 yearOnClick = $(this).text()
-                let filteredData = data.filter(function(event) {
+                let filteredData = data.filter(function (event) {
                     let date = new Date(event.date);
                     return parseInt(yearOnClick) === date.getFullYear();
                 })
 
-                filteredData.forEach(function(event) {
+                filteredData.forEach(function (event) {
                     $('#name').append(renderEvent(event));
                 })
                 $('.card').click(flipCard);
@@ -184,18 +184,18 @@ window.onload = (function() {
 function formSend(form) {
 
     let val = {
-        "name": form.EventName1.value,
-        "date": form.EventDate1.value,
-        "city": form.EventCity1.value,
-        "address": form.EventAddress1.value,
+        "name": form.EventName.value,
+        "date": form.EventDate.value,
+        "city": form.EventCity.value,
+        "address": form.EventAddress.value,
         "speaker": [{
-            "time": form.EventTime1.value,
-            "topic": form.EventTopic1.value,
-            "firstName": form.SpeakerName1.value,
-            "lastName": form.SpeakerLastName1.value,
-            "country": form.SpeakerCountry1.value,
-            "city": form.SpeakerCity1.value,
-            "description": form.SpeakerDescription1.value
+            "time": form.EventTime.value,
+            "topic": form.EventTopic.value,
+            "firstName": form.SpeakerName.value,
+            "lastName": form.SpeakerLastName.value,
+            "country": form.SpeakerCountry.value,
+            "city": form.SpeakerCity.value,
+            "description": form.SpeakerDescription.value
         }]
     }
     let ref = firebase.database().ref();
@@ -207,81 +207,80 @@ function formSend(form) {
 
 }
 //login button
-document.getElementById("check").onclick = function() {
-        let login = document.getElementById("login");
-        let password = document.getElementById("password");
-        let check = document.getElementById("check");
-        let logout = document.getElementById("logout");
-        let logged = document.getElementById("logged");
-        if (login.value == "admin" && password.value == "admin") {
-            password.style.display = "none";
-            login.style.display = "none";
-            check.style.display = "none";
-            logout.style.display = "block";
-            logged.style.display = "block";
-            $("#labellogin").toggleClass("hidden");
-            $("#labelpassword").toggleClass("hidden");
-            $(".disabled").toggleClass("disabled");
+document.getElementById("check").onclick = function () {
+    let login = document.getElementById("login");
+    let password = document.getElementById("password");
+    let check = document.getElementById("check");
+    let logout = document.getElementById("logout");
+    let logged = document.getElementById("logged");
+    if (login.value == "admin" && password.value == "admin") {
+        password.style.display = "none";
+        login.style.display = "none";
+        check.style.display = "none";
+        logout.style.display = "block";
+        logged.style.display = "block";
+        $("#labellogin").toggleClass("hidden");
+        $("#labelpassword").toggleClass("hidden");
+        $(".disabled").toggleClass("disabled");
 
-        } else {
-            alert("incorrect login or password");
-            login.value = "";
-            password.value = "";
-        }
+    } else {
+        alert("incorrect login or password");
+        login.value = "";
+        password.value = "";
     }
-    //logout button
-document.getElementById("logout").onclick = function() {
-        window.location.replace('index.html');
-    }
-    //add speaker form
+}
+//logout button
+document.getElementById("logout").onclick = function () {
+    window.location.replace('index.html');
+}
+//add speaker form
 let counter = 0;
-$("#addSpeaker").click(function() {
+$("#addSpeaker").click(function () {
     let oneMore = '';
     if (counter < 4) {
         counter += 1;
-        oneMore +=
-            `
-            <div class="addFormBody">
-                <fieldset>
-                    <label class="eventName">Add speaker</label>
-                    <div class="field">
-                        <label for="EventTime">Event time</label>
-                        <select id="EventTime${counter}" name="EventTime">
-                    <option value="9:30-10:30" selected>9:30-10:30</option>
-                    <option value="10:30-11:30">10:30-11:30</option>
-                    <option value="11:30-12:30">11:30-12:30</option>
-                    <option value="12:30-13:30">12:30-13:30</option>
-                </select>
-                    </div>
-                    <div class="field">
-                        <label for="Topic">Topic</label>
-                        <input type="text" id="EventTopic${counter}" name="EventTopic">
-                    </div>
-                    <div class="field">
-                        <label for="SpeakerName">First Name</label>
-                        <input type="text" id="SpeakerName${counter}" name="SpeakerName">
-                    </div>
-                    <div class="field">
-                        <label for="SpeakerLastname">Last Name</label>
-                        <input type="text" id="SpeakerLastname${counter}" name="SpeakerLastName">
-                    </div>
-                    <div class="field">
-                        <label for="SpeakerFromCountry">From (Country)</label>
-                        <input type="text" id="SpeakerCountry${counter}" name="SpeakerCountry">
-                    </div>
-                    <div class="field">
-                        <label for="SpeakerFromCity">From (City)</label>
-                        <input type="text" id="SpeakerCity${counter}" name="SpeakerCity">
-                    </div>
-                    <div class="field">
-                        <label for="SpeakerDescription">Description</label>
-                        <input type="text" id="SpeakerDescription${counter}" name="SpeakerDescription">
-                    </div>
-
+        oneMore += `
+        <div class="addFormBody" id="speakerid${counter}">
+            <fieldset>
+                <label class="EventName" >Add speaker</label><a class="close" href="#" onclick="hide('speakerid${counter}')">X</a>
+                <div class="field">
+                    <label for="EventTime">Event time</label>
+                    <select class="selectClass" id="EventTime${counter}" name="EventTime">
+                        <option value="9:30-10:30" selected>9:30-10:30</option>
+                        <option value="10:30-11:30">10:30-11:30</option>
+                        <option value="11:30-12:30">11:30-12:30</option>
+                        <option value="12:30-13:30">12:30-13:30</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="Topic">Topic</label>
+                    <input type="text" id="EventTopic${counter}" name="EventTopic">
+                </div>
+                <div class="field">
+                    <label for="SpeakerName">First Name</label>
+                    <input type="text" id="SpeakerName${counter}" name="SpeakerName">
+                </div>
+                <div class="field">
+                    <label for="SpeakerLastname">Last Name</label>
+                    <input type="text" id="SpeakerLastname${counter}" name="SpeakerLastName">
+                </div>
+                <div class="field">
+                    <label for="SpeakerFromCountry">From (Country)</label>
+                    <input type="text" id="SpeakerCountry${counter}" name="SpeakerCountry">
+                </div>
+                <div class="field">
+                    <label for="SpeakerFromCity">From (City)</label>
+                    <input type="text" id="SpeakerCity${counter}" name="SpeakerCity">
+                </div>
+                <div class="field">
+                    <label for="SpeakerDescription">Description</label>
+                    <input type="text" id="SpeakerDescription${counter}" name="SpeakerDescription">
+                </div>
             </fieldset>
         </div>`
     }
-
     $('#oneMore').append(oneMore);
-    console.log(counter);
 })
+function hide(target) {
+    document.getElementById(target).style.display = 'none';
+}
