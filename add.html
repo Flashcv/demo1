@@ -39,27 +39,26 @@
     <form onsubmit="return formSend(this)" name="form">
         <div class="formClass">
             <div class="addFormHead">
-
                 <fieldset>
-                    <label class="eventName">Add event</label>
+                    <label class="EventName">Add event</label>
                     <div class="field">
                         <label for="EventName">Name of Event</label>
-                        <input type="text" name="EventName" id="EventName" value="Presentation" maxlength="12">
+                        <input type="text" name="EventName" id="EventName" value="" maxlength="12" title="max 12 symbols">
                     </div>
                     <div class="field">
                         <label for="EventDate">Date of Event</label>
-                        <input type="date" name="EventDate" id="EventDate" value="2019-08-28" min="date">
+                        <input type="date" name="EventDate" id="EventDate" value="" min="2018-10-28" title="only actual date">
                     </div>
                     <div class="field">
                         <label for="EventCity">Event place</label>
-                        <input type="text" name="EventCity" id="EventCity" value="Chernivtsi" maxlength="20">
+                        <input type="text" name="EventCity" id="EventCity" value="" maxlength="20" title="maximum 20 symbols">
                     </div>
                     <div class="field">
                         <label for="EventAddress">Event address</label>
-                        <input type="text" name="EventAddress" id="EventAddress" value="Holovna 246">
+                        <input type="text" name="EventAddress" id="EventAddress" value="" >
                     </div>
                     <div class="addSpeakerBtn">
-                        <input type="button" name="addSpeaker" id="addSpeaker" value="+" class="btnAdd">
+                        <input type="button" name="addSpeaker" id="addSpeaker" value="Add speaker" class="btnAdd" title="4 maximum">
                     </div>
                 </fieldset>
             </div>
