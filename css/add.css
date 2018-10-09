@@ -4,17 +4,18 @@
 
 .field input,
 .field select {
-    background-color: #232227;
+    background-color: #1a133600;
     width: 50%;
     margin: 0;
     padding: 3px;
     height: 40%;
     border: 1px solid rgb(236, 226, 226);
-    color: whitesmoke;
+    color: black;
+    border: 1px solid black;
 }
 
 .field label {
-    color: whitesmoke;
+    color: black;
     width: 40%;
     display: inline-block;
 }
@@ -55,7 +56,7 @@ header {
 .btnAdd {
     cursor: pointer;
     background: #E76642;
-    width: 24px;
+    width: 100px;
     height: 24px;
     border: 0;
     color: #ffffff;
@@ -139,7 +140,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: rgb(231, 240, 104);
+    background-color: #fafafa;
     min-height: 100%;
     position: relative;
 }
@@ -156,7 +157,7 @@ html {
 fieldset {
     border-radius: 10px;
     border: 0px solid black;
-    background-color: #232227;
+    /* background-color: #1a133600; */
 }
 
 form {
@@ -182,9 +183,13 @@ form {
     align-items: center;
     height: 37wv;
 }
-
+.addFormHead{
+    border: 1px solid black;
+    border-radius: 10px;
+}
 .addFormBody {
     border-radius: 10px;
+    border: 1px solid black;
     z-index: +1;
     -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
@@ -196,11 +201,10 @@ form {
     float: right;
 }
 
-.eventName {
+label.EventName {
     width: 100wv;
     font-size: 24px;
-    color: #ECECE7;
-    font-family: 'Montserrat', sans-serif;
+    color: black;
     font-weight: 500;
 }
 
@@ -209,4 +213,13 @@ form {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+}
+.close {
+    color:black;
+    float: right;
+    text-decoration: none;
+}
+
+.EventName{
+    width: 100%;
 }

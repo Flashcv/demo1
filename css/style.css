@@ -125,8 +125,8 @@ input {
 .box-1 {
     flex: 1;
     text-align: right;
-    background-image: linear-gradient(-90deg, rgb(231, 240, 104), rgb(231, 191, 9));
-    min-height: 800px;
+    background-image: linear-gradient(-90deg, #fafafa, rgb(190, 184, 169));
+    min-height: 900px;
     z-index: +1;
     -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
@@ -141,7 +141,7 @@ input {
 
 .box-2 {
     flex: 6;
-    background-color: rgb(231, 240, 104);
+    background-color: #fafafa;
     min-height: 100wv;
     content: '';
     float: center;
@@ -180,7 +180,7 @@ html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: rgb(231, 240, 104);
+    background-color: #fafafa;
     min-height: 100%;
     position: relative;
 }
@@ -376,12 +376,12 @@ html {
 }
 
 .eventName {
-    font-size: 1.6em;
+    font-size: 1.4em;
     color: wheat;
 }
 
 .eventPlace {
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: white;
 }
 
